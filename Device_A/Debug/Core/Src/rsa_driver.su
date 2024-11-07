@@ -1,0 +1,5 @@
+../Core/Src/rsa_driver.c:102:6:RSA_Driver_init	8	static
+../Core/Src/rsa_driver.c:111:6:RSA_Encryption_preparation	4	static
+../Core/Src/rsa_driver.c:123:9:RSA_Encrypt	120	static
+../Core/Src/rsa_driver.c:165:9:RSA_Decrypt	48	static
+../Core/Src/rsa_driver.c:198:12:Buffercmp	24	static
