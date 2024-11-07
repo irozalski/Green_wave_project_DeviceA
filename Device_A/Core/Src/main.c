@@ -112,7 +112,7 @@ int main(void)
     nRF24_SetTXAddress("Odb");
     nRF24_TX_Mode();
 
-    RSA_Driver_init();
+    RSA_Driver_init(0);
   /* Configure the green led */
     //Led_Config();
 
