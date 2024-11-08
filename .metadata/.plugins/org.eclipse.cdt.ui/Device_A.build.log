@@ -1,10 +1,10 @@
-21:35:41 **** Incremental Build of configuration Debug for project Device_A ****
+11:24:34 **** Incremental Build of configuration Debug for project Device_A ****
 make -j4 all 
 arm-none-eabi-size   Device_A.elf 
    text	   data	    bss	    dec	    hex	filename
-  29176	     56	   7304	  36536	   8eb8	Device_A.elf
+  18128	     24	   2928	  21080	   5258	Device_A.elf
 Finished building: default.size.stdout
  
 
-21:35:41 Build Finished. 0 errors, 0 warnings. (took 413ms)
+11:24:34 Build Finished. 0 errors, 0 warnings. (took 415ms)
 
