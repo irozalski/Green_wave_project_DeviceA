@@ -52,7 +52,7 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
-
+volatile uint8_t nrf24_rx_flag, nrf24_tx_flag, nrf24_mr_flag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,11 +108,13 @@ int main(void)
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
   nRF24_Init(&hspi1);
-    nRF24_SetRXAddress(0, "Nad");
-    nRF24_SetTXAddress("Odb");
-    nRF24_TX_Mode();
-
-    RSA_Driver_init();
+//    nRF24_SetRXAddress(0, "Nad");
+//    nRF24_SetTXAddress("Odb");
+//    nRF24_TX_Mode();
+  nRF24_SetRXAddress(0, "Odb");
+      	nRF24_SetTXAddress("Nad");
+      	nRF24_RX_Mode();
+    //RSA_Driver_init(0);
   /* Configure the green led */
     //Led_Config();
 
@@ -129,7 +131,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  send_message(50);
+	  //send_message(50);
+	  receive_message();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

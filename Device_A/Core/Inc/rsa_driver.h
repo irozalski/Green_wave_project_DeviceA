@@ -28,8 +28,7 @@ int32_t RSA_Decrypt(RSAprivKey_stt * P_pPrivKey,
 TestStatus Buffercmp(const uint8_t* pBuffer, uint8_t* pBuffer1, uint16_t BufferLength);
 
 
-void RSA_Encryption_preparation();
 
-void RSA_Driver_init();
+void RSA_Driver_init(uint8_t key_number);
 
 #endif /* INC_RSA_DRIVER_H_ */

@@ -1,0 +1,10 @@
+11:24:34 **** Incremental Build of configuration Debug for project Device_A ****
+make -j4 all 
+arm-none-eabi-size   Device_A.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18128	     24	   2928	  21080	   5258	Device_A.elf
+Finished building: default.size.stdout
+ 
+
+11:24:34 Build Finished. 0 errors, 0 warnings. (took 415ms)
+
