@@ -27,6 +27,8 @@
 #include "spi.h"
 #include "ring_buffer.h"
 #include "rsa_driver.h"
+#include "ir_sender.h"
+#include "ir_receiver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,7 +54,16 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
+//nRF variables
 volatile uint8_t nrf24_rx_flag, nrf24_tx_flag, nrf24_mr_flag;
+
+//IR variables
+uint8_t command = 0xd;
+uint32_t lastCommandTime = 0;
+
+//state variables
+int transmission_step = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -64,6 +75,21 @@ static void MX_TIM3_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_CRC_Init(void);
 /* USER CODE BEGIN PFP */
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim == &htim3)
+  {
+    switch (HAL_TIM_GetActiveChannel(&htim3))
+    {
+      case HAL_TIM_ACTIVE_CHANNEL_1:
+        ir_tim_interrupt();
+        break;
+      default:
+        break;
+    }
+  }
+}
 
 void Error_Handler(void);
 /* USER CODE END PFP */
@@ -111,9 +137,10 @@ int main(void)
 //    nRF24_SetRXAddress(0, "Nad");
 //    nRF24_SetTXAddress("Odb");
 //    nRF24_TX_Mode();
-  nRF24_SetRXAddress(0, "Odb");
-      	nRF24_SetTXAddress("Nad");
-      	nRF24_RX_Mode();
+  	  //nRF Config
+  	  nRF24_SetRXAddress(0, "Odb");
+      nRF24_SetTXAddress("Nad");
+      nRF24_RX_Mode();
     //RSA_Driver_init(0);
   /* Configure the green led */
     //Led_Config();
@@ -121,6 +148,9 @@ int main(void)
     /* Toggle the green led before starting the algorithm */
     //Led_Toggle(500);
 
+        //IR Config
+        ir_sender_init();
+        ir_receiver_init();
 
     /* Enable CRC clock */
     __CRC_CLK_ENABLE();
@@ -132,7 +162,23 @@ int main(void)
   while (1)
   {
 	  //send_message(50);
-	  receive_message();
+	  //receive_message();
+	  if(transmission_step == 0){
+	  	  	  	  uint32_t currentTime = HAL_GetTick();  // Pobranie aktualnego czasu w ms
+	  	  	  	  	  if ((currentTime - lastCommandTime) >= 1000) {
+	  	  	  	  	      NEC_SendCommand(command);           // Wysłanie komendy
+	  	  	  	  	      lastCommandTime = currentTime;      // Aktualizacja czasu ostatniego wysłania
+	  	  	  	  	  }
+	  	  	  }
+	  if(transmission_step == 0){
+	  	  	  int value = ir_read();
+	  	  	  	  	  if (value != -1) {
+	  	  	  	  	    if (value == IR_CODE_ONOFF){
+	  	  	  	  	    	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+	  	  	  	  	    	transmission_step = 2;
+	  	  	  	  	    }
+	  	  	  	  	  }
+	  	  	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
