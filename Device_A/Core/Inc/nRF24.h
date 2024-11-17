@@ -20,7 +20,8 @@ void nRF24_WriteStatus(uint8_t st);
 //
 void nRF24_RX_Mode(void);
 void nRF24_TX_Mode(void);
-
+/////////////////////////////////////////////////////////////////TEST
+void PWR_RESET_TEST(void);
 //
 // RADIO SETTINGS
 //

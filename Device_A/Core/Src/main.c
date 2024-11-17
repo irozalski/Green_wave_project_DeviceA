@@ -62,8 +62,12 @@ uint8_t command = 0xd;
 uint32_t lastCommandTime = 0;
 
 //state variables
-int transmission_step = 0;
+uint8_t transmission_step = 0;
 
+
+int32_t rv_status = 0;
+int32_t sd_status = 0;
+uint8_t ir_send_counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,19 +138,7 @@ int main(void)
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
   nRF24_Init(&hspi1);
-//    nRF24_SetRXAddress(0, "Nad");
-//    nRF24_SetTXAddress("Odb");
-//    nRF24_TX_Mode();
-  	  //nRF Config
-  	  nRF24_SetRXAddress(0, "Odb");
-      nRF24_SetTXAddress("Nad");
-      nRF24_RX_Mode();
-    //RSA_Driver_init(0);
-  /* Configure the green led */
-    //Led_Config();
-
-    /* Toggle the green led before starting the algorithm */
-    //Led_Toggle(500);
+    RSA_Driver_init(0);
 
         //IR Config
         ir_sender_init();
@@ -155,30 +147,68 @@ int main(void)
     /* Enable CRC clock */
     __CRC_CLK_ENABLE();
 
+    nRF24_SetRXAddress(0,(uint8_t *)"Nad");
+    nRF24_SetTXAddress((uint8_t *)"Nad");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //send_message(50);
-	  //receive_message();
-	  if(transmission_step == 0){
-	  	  	  	  uint32_t currentTime = HAL_GetTick();  // Pobranie aktualnego czasu w ms
-	  	  	  	  	  if ((currentTime - lastCommandTime) >= 1000) {
-	  	  	  	  	      NEC_SendCommand(command);           // Wysłanie komendy
-	  	  	  	  	      lastCommandTime = currentTime;      // Aktualizacja czasu ostatniego wysłania
-	  	  	  	  	  }
-	  	  	  }
-	  if(transmission_step == 0){
-	  	  	  int value = ir_read();
-	  	  	  	  	  if (value != -1) {
-	  	  	  	  	    if (value == IR_CODE_ONOFF){
-	  	  	  	  	    	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	  	  	  	  	    	transmission_step = 2;
-	  	  	  	  	    }
-	  	  	  	  	  }
-	  	  	  }
+
+	  switch (transmission_step) {
+	    case 0: {
+	      uint32_t currentTime = HAL_GetTick();  // Pobranie aktualnego czasu w ms
+	      if ((currentTime - lastCommandTime) >= 1000) {
+	        NEC_SendCommand(command);       // Wysłanie komendy
+	        lastCommandTime = currentTime;  // Aktualizacja czasu ostatniego wysłania
+	      }
+	      int value = ir_read();
+	      if (value != -1) {
+	        if (value == IR_CODE_ONOFF) {
+	          HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+	          transmission_step = 1;
+	        }
+	      }
+	      break;
+	    }
+
+	    case 1: {
+	      nRF24_RX_Mode();
+	      transmission_step = 2;
+	      break;
+	    }
+
+	    case 2: {
+	      rv_status = receive_message();
+	      if (rv_status == 1) {
+	        transmission_step = 3;
+	      }
+	      break;
+	    }
+	    case 3: {
+	      nRF24_TX_Mode();
+
+	      transmission_step = 4;
+	      HAL_Delay(5000);
+	      break;
+	    }
+
+	    case 4: {
+	      sd_status = send_message(200);
+	      if (sd_status == 1) {
+	        transmission_step = 5;
+	      }
+	      break;
+	    }
+
+	    case 5: {
+	      transmission_step = 0;
+	      break;
+	    }
+	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

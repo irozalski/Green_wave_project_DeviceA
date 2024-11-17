@@ -9,6 +9,7 @@
 //#include "crypto.h"
 #include "rsa_driver.h"
 #include "ring_buffer.h"
+#include "rsa_keys.h"
 
 uint8_t preallocated_buffer[4096]; /* buffer required for internal allocation of memory */
 
