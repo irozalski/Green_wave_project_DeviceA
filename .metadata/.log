@@ -659,3 +659,408 @@ Remote communication error.  Target disconnected.: Not a directory.
 java.lang.Exception: Remote communication error.  Target disconnected.: Not a directory.
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+!SESSION 2024-11-18 09:52:12.613 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-18 09:52:23.934
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-18 09:52:24.016
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY org.eclipse.ui 4 4 2024-11-18 09:52:24.427
+!MESSAGE Unable to create part
+!STACK 1
+org.eclipse.ui.PartInitException: Cannot determine URI for '/Device_A/Core/Src/main.c'.
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3192)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3203)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:353)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:344)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:995)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:960)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:140)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:403)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:330)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:202)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:91)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:60)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:42)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:132)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:995)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:659)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1209)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:116)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:677)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:528)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:73)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:995)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:659)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:51)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:82)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:116)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:64)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:677)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1083)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Device_A/Core/Src/main.c'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:239)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:115)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:563)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:792)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:481)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:724)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4171)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:262)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1479)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:153)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1445)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1409)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.lambda$1(AbstractTextEditor.java:3161)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2290)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3178)
+	... 121 more
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2024-11-18 09:52:24.430
+!MESSAGE Cannot determine URI for '/Device_A/Core/Src/main.c'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Device_A/Core/Src/main.c'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:239)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:115)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:563)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:792)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:481)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:724)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4171)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:262)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1479)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:153)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1445)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1409)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.lambda$1(AbstractTextEditor.java:3161)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2290)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3178)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3203)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:353)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:344)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:995)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:960)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:140)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:403)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:330)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:202)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:91)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:60)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:42)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:132)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:995)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:659)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1209)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:116)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:677)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:528)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:73)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:995)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:659)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:51)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:82)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:116)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:64)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:677)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:150)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:673)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:712)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1083)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2024-11-18 09:52:24.431
+!MESSAGE Cannot determine URI for '/Device_A/Core/Src/main.c'.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-18 09:52:28.050
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-18 09:52:33.042
+!MESSAGE Indexed 'Device_A' (29 sources, 160 headers) in 2,76 sec: 7 960 declarations; 42 762 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+!SESSION 2024-11-18 09:52:55.208 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-18 09:53:02.559
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-18 09:53:02.624
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-18 09:53:08.493
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-11-18 09:58:55.488 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-18 09:59:03.002
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-18 09:59:03.060
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-18 09:59:08.871
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.stlink 4 4 2024-11-18 23:21:48.566
+!MESSAGE ST-LINK GDB server failed to start (exit code = 0)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-11-18 23:21:48.602
+!MESSAGE Error in final launch sequence:
+
+Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to start GDB server
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:326)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (0) Unknown. Please check power and cabling to target.
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1691)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:194)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:95)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:197)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:102)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+!SUBENTRY 1 com.st.stm32cube.ide.mcu.debug.launch 4 0 2024-11-18 23:21:48.603
+!MESSAGE Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (0) Unknown. Please check power and cabling to target.
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1691)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:194)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:95)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:197)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:102)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+!SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.stlink 4 0 2024-11-18 23:21:48.603
+!MESSAGE Error in initializing ST-LINK device.
+Reason: (0) Unknown. Please check power and cabling to target.

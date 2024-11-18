@@ -138,12 +138,12 @@ int main(void)
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
   nRF24_Init(&hspi1);
-    RSA_Driver_init(0);
+  //RSA_Driver_getMessage();
+    //RSA_Driver_init(0);
 
         //IR Config
         ir_sender_init();
         ir_receiver_init();
-
     /* Enable CRC clock */
     __CRC_CLK_ENABLE();
 
@@ -189,14 +189,15 @@ int main(void)
 	    }
 	    case 3: {
 	      nRF24_TX_Mode();
-
+	      nRF24_SetRXAddress(0,(uint8_t *)"Nad");
+	          //nRF24_SetTXAddress((uint8_t *)"Nad");
 	      transmission_step = 4;
-	      HAL_Delay(5000);
+	      HAL_Delay(500);
 	      break;
 	    }
 
 	    case 4: {
-	      sd_status = send_message(200);
+	      sd_status = send_message(50);
 	      if (sd_status == 1) {
 	        transmission_step = 5;
 	      }

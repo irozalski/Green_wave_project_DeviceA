@@ -29,6 +29,10 @@ TestStatus Buffercmp(const uint8_t* pBuffer, uint8_t* pBuffer1, uint16_t BufferL
 
 
 
-void RSA_Driver_init(uint8_t key_number);
+void Encrypt_And_Add_Same_Message(uint8_t key_number, uint8_t *output_message, size_t message_size);
+
+//void RSA_Driver_getMessage(void);
+
+void Decrypt_RSA_Message_And_Add_It(uint8_t key_number, uint8_t *received_message);
 
 #endif /* INC_RSA_DRIVER_H_ */

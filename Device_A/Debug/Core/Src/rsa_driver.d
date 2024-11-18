@@ -104,7 +104,8 @@ Core/Src/rsa_driver.o: ../Core/Src/rsa_driver.c ../Core/Inc/rsa_driver.h \
  C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlewares/ST/STM32_Cryptographic/Inc/C25519/c25519.h \
  C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlewares/ST/STM32_Cryptographic/Inc/CHACHA/chacha.h \
  C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlewares/ST/STM32_Cryptographic/Inc/CHACHA20-POLY1305/chacha20-poly1305.h \
- ../Core/Inc/ring_buffer.h ../Core/Inc/rsa_keys.h
+ ../Core/Inc/ring_buffer.h ../Core/Inc/rsa_keys.h \
+ ../Core/Inc/random_message.h
 ../Core/Inc/rsa_driver.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -214,3 +215,4 @@ C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlew
 C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlewares/ST/STM32_Cryptographic/Inc/CHACHA20-POLY1305/chacha20-poly1305.h:
 ../Core/Inc/ring_buffer.h:
 ../Core/Inc/rsa_keys.h:
+../Core/Inc/random_message.h:

@@ -7,6 +7,7 @@
 #include "ring_buffer.h"
 #include "nRF24_Defs.h"
 #include "nRF24.h"
+#include "rsa_driver.h"
 //#include "stdint.h"
 
 uint8_t tx_ring_buffer[BUFFER_SIZE];  // Ring buffer to store the large message
@@ -100,11 +101,7 @@ int32_t receive_message(){
 		    buffer_get_full_message(received_message, expected_message_size);  // Extract full message
 //		    HAL_UART_Transmit(&huart1, received_message, expected_message_size, 1000);  // Transmit message via UART
 //
-//		    PrivKey_st.mExponentSize = sizeof(PrivateExponent);
-//		          PrivKey_st.mModulusSize = sizeof(Modulus);
-//		          PrivKey_st.pmExponent = (uint8_t *) PrivateExponent;
-//		          PrivKey_st.pmModulus = (uint8_t *) Modulus;
-//		          status = RSA_Decrypt(&PrivKey_st, received_message, output, &outputSize);
+		    Decrypt_RSA_Message_And_Add_It(0, received_message);
 
 		     flush_rx_buffer();
 		     return 1;

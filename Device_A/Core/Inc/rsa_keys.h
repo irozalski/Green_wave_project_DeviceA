@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 
-#define RSA_KEY_SET_SIZE 515
+#define RSA_KEY_SET_SIZE 512
 #define RSA_KEY_SETS_COUNT 50
 
 // Funkcja do pobrania wskaźnika na wybrany zestaw kluczy w tablicy
