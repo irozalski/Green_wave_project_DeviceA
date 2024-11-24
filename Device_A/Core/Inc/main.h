@@ -28,12 +28,10 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-#include "stdint.h"
-#include <string.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -61,14 +59,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define BUTTON1_Pin GPIO_PIN_13
-#define BUTTON1_GPIO_Port GPIOC
 #define CS_NRF_Pin GPIO_PIN_0
 #define CS_NRF_GPIO_Port GPIOC
 #define CE_NRF_Pin GPIO_PIN_1
 #define CE_NRF_GPIO_Port GPIOC
+#define LED_RED_Pin GPIO_PIN_0
+#define LED_RED_GPIO_Port GPIOA
+#define LED_GREEN_Pin GPIO_PIN_1
+#define LED_GREEN_GPIO_Port GPIOA
+#define LED_YELLOW_Pin GPIO_PIN_4
+#define LED_YELLOW_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define BUTTON1_Pin GPIO_PIN_0
+#define BUTTON1_GPIO_Port GPIOB
 #define IRQ_NRF_Pin GPIO_PIN_6
 #define IRQ_NRF_GPIO_Port GPIOB
 #define IRQ_NRF_EXTI_IRQn EXTI9_5_IRQn

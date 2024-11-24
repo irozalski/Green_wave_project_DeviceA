@@ -58,9 +58,13 @@ TIM_HandleTypeDef htim3;
 volatile uint8_t nrf24_rx_flag, nrf24_tx_flag, nrf24_mr_flag;
 
 //IR variables
-uint8_t command = 0xd;
-uint32_t lastCommandTime = 0;
+uint8_t command = 0xA;
 
+uint32_t currentTime = 0;
+
+uint32_t lastCommandTime = 0;
+uint32_t lastREDLEDCommandTime = 0;
+uint32_t lastYELLOWLEDCommandTime = 0;
 //state variables
 uint8_t transmission_step = 0;
 
@@ -71,7 +75,7 @@ uint8_t ir_send_counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-static void SystemClock_Config(void);
+void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
@@ -150,6 +154,8 @@ int main(void)
     nRF24_SetRXAddress(0,(uint8_t *)"Nad");
     nRF24_SetTXAddress((uint8_t *)"Nad");
 
+    //LED indcator
+    HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,56 +164,95 @@ int main(void)
   {
 
 	  switch (transmission_step) {
-	    case 0: {
-	      uint32_t currentTime = HAL_GetTick();  // Pobranie aktualnego czasu w ms
-	      if ((currentTime - lastCommandTime) >= 1000) {
+
+	  case 0: {
+	      if (HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin) == GPIO_PIN_RESET) {
+	          HAL_Delay(50); // Debouncing
+	          if (HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin) == GPIO_PIN_RESET) {
+	              transmission_step = 1;
+	          }
+	      }
+	      break;
+	  }
+
+	    case 1: {
+	      currentTime = HAL_GetTick();  // Pobranie aktualnego czasu w ms
+	      if ((currentTime - lastCommandTime) >= 300) {
 	        NEC_SendCommand(command);       // Wysłanie komendy
 	        lastCommandTime = currentTime;  // Aktualizacja czasu ostatniego wysłania
 	      }
+
+	      if ((currentTime - lastREDLEDCommandTime) >= 400) {
+	      	        	    	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	      	        	    	lastREDLEDCommandTime = currentTime;
+	      	        	      }
+
 	      int value = ir_read();
 	      if (value != -1) {
-	        if (value == IR_CODE_ONOFF) {
+	        if (value == 12) {
 	          HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	          transmission_step = 1;
+	          //LED indicators
+	          HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+	          transmission_step = 2;
 	        }
 	      }
 	      break;
 	    }
 
-	    case 1: {
+	    case 2: {
 	      nRF24_RX_Mode();
-	      transmission_step = 2;
+	      transmission_step = 3;
 	      break;
 	    }
 
-	    case 2: {
+	    case 3: {
+
+//	    currentTime = HAL_GetTick();
+//	    	if ((currentTime - lastYELLOWLEDCommandTime) >= 400) {
+//	    		HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+//	    		lastYELLOWLEDCommandTime = currentTime;
+//	    	}
+
 	      rv_status = receive_message();
 	      if (rv_status == 1) {
-	        transmission_step = 3;
+	    	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
+	        transmission_step = 4;
 	      }
+
 	      break;
 	    }
-	    case 3: {
+	    case 4: {
 	      nRF24_TX_Mode();
 	      nRF24_SetRXAddress(0,(uint8_t *)"Nad");
 	          //nRF24_SetTXAddress((uint8_t *)"Nad");
-	      transmission_step = 4;
+	      transmission_step = 5;
 	      HAL_Delay(500);
 	      break;
 	    }
 
-	    case 4: {
+	    case 5: {
+
 	      sd_status = send_message(50);
 	      if (sd_status == 1) {
-	        transmission_step = 5;
+	    	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	        transmission_step = 6;
 	      }
 	      break;
 	    }
 
-	    case 5: {
-	      transmission_step = 0;
+	    case 6: {
+	      HAL_Delay(5000);
+	      //HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	      HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
+	      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+	      transmission_step = 7;
 	      break;
 	    }
+
+	    case 7: {
+	    	      transmission_step = 0;
+	    	      break;
+	    	    }
 	  }
 
     /* USER CODE END WHILE */
@@ -217,18 +262,6 @@ int main(void)
   /* USER CODE END 3 */
 }
 
-
-void Error_Handler(void)
-{
-  /* User may add here some code to deal with this error */
-  while (1)
-  {
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-    HAL_Delay(250);
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-    HAL_Delay(250);
-  }
-}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -535,7 +568,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, CS_NRF_Pin|CE_NRF_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_GREEN_Pin|LED_YELLOW_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : CS_NRF_Pin CE_NRF_Pin */
   GPIO_InitStruct.Pin = CS_NRF_Pin|CE_NRF_Pin;
@@ -544,12 +577,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : LED_RED_Pin LED_GREEN_Pin LED_YELLOW_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|LED_GREEN_Pin|LED_YELLOW_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BUTTON1_Pin */
+  GPIO_InitStruct.Pin = BUTTON1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : IRQ_NRF_Pin */
   GPIO_InitStruct.Pin = IRQ_NRF_Pin;
@@ -571,7 +610,7 @@ static void MX_GPIO_Init(void)
   * @brief  This function is executed in case of error occurrence.
   * @retval None
   */
-void IRError_Handler(void)
+void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
