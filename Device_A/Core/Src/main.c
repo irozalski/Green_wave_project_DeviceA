@@ -29,6 +29,8 @@
 #include "rsa_driver.h"
 #include "ir_sender.h"
 #include "ir_receiver.h"
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +48,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 CRC_HandleTypeDef hcrc;
+
+IWDG_HandleTypeDef hiwdg;
 
 SPI_HandleTypeDef hspi1;
 
@@ -82,6 +86,7 @@ static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_CRC_Init(void);
+static void MX_IWDG_Init(void);
 /* USER CODE BEGIN PFP */
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
@@ -140,6 +145,7 @@ int main(void)
   MX_TIM3_Init();
   MX_SPI1_Init();
   MX_CRC_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   nRF24_Init(&hspi1);
   //RSA_Driver_getMessage();
@@ -156,6 +162,8 @@ int main(void)
 
     //LED indcator
     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -166,6 +174,7 @@ int main(void)
 	  switch (transmission_step) {
 
 	  case 0: {
+		  HAL_IWDG_Refresh(&hiwdg);  // Refresh IWDG
 	      if (HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin) == GPIO_PIN_RESET) {
 	          HAL_Delay(50); // Debouncing
 	          if (HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin) == GPIO_PIN_RESET) {
@@ -190,6 +199,7 @@ int main(void)
 	      int value = ir_read();
 	      if (value != -1) {
 	        if (value == 12) {
+	          HAL_IWDG_Refresh(&hiwdg);  // Refresh IWDG
 	          HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	          //LED indicators
 	          HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
@@ -279,9 +289,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -331,6 +342,34 @@ static void MX_CRC_Init(void)
   /* USER CODE BEGIN CRC_Init 2 */
 
   /* USER CODE END CRC_Init 2 */
+
+}
+
+/**
+  * @brief IWDG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IWDG_Init(void)
+{
+
+  /* USER CODE BEGIN IWDG_Init 0 */
+
+  /* USER CODE END IWDG_Init 0 */
+
+  /* USER CODE BEGIN IWDG_Init 1 */
+
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_256;
+  hiwdg.Init.Reload = 1249;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
+
+  /* USER CODE END IWDG_Init 2 */
 
 }
 
@@ -568,7 +607,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, CS_NRF_Pin|CE_NRF_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_GREEN_Pin|LED_YELLOW_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : CS_NRF_Pin CE_NRF_Pin */
   GPIO_InitStruct.Pin = CS_NRF_Pin|CE_NRF_Pin;
@@ -577,8 +616,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_RED_Pin LED_GREEN_Pin LED_YELLOW_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|LED_GREEN_Pin|LED_YELLOW_Pin|LD2_Pin;
+  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin LED_GREEN_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

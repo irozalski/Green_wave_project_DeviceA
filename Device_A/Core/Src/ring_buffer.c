@@ -48,6 +48,7 @@ int32_t send_message(uint32_t delay_time){
 		    nRF24_WaitTX();               // Wait until the transmission is completed
 		    }
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);  // Toggle LED to indicate transmission
+		HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 		PackageTimer = HAL_GetTick();
 	}
 	return 0;
@@ -108,6 +109,7 @@ int32_t receive_message(){
 		     }
 
 		     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);  // Toggle LED to indicate reception
+		 	HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 		}
 	return 0;
 }

@@ -1384,3 +1384,116 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-11-24 11:23:42.320
 !MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2,56 sec: 7 987 declarations; 42 952 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+!SESSION 2024-11-25 00:45:18.524 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-25 00:45:26.710
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-25 00:45:26.788
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-25 00:45:33.872
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-25 00:45:38.213
+!MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2.79 sec: 7,987 declarations; 42,951 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0039%)
+!SESSION 2024-11-25 13:19:23.243 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-25 13:19:31.905
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-25 13:19:31.980
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-25 13:19:39.089
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-25 13:19:42.171
+!MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2,82 sec: 7 987 declarations; 42 951 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+!SESSION 2024-11-25 21:49:44.549 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-25 21:49:52.139
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-25 21:49:52.199
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-25 21:49:58.112
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-25 21:50:00.920
+!MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2,52 sec: 7 987 declarations; 42 951 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+!SESSION 2024-11-30 18:54:56.558 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-30 18:55:06.852
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-30 18:55:06.930
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-30 18:55:13.432
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-30 18:55:16.359
+!MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2,67 sec: 7 987 declarations; 42 951 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+!SESSION 2024-11-30 23:03:15.882 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Framework arguments:  C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-30 23:04:10.141
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-30 23:04:10.202
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-30 23:04:16.260
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-30 23:04:18.954
+!MESSAGE Indexed 'Device_A' (30 sources, 161 headers) in 2,46 sec: 7 987 declarations; 42 951 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0039%)
+
+!ENTRY org.eclipse.core.resources 4 566 2024-12-02 23:12:36.236
+!MESSAGE Workspace was not properly initialized or has already shutdown.
+!SESSION 2024-12-02 23:14:00.518 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-12-02 23:14:08.088
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-12-02 23:14:08.169
+!MESSAGE Log4j initialized with config file C:\Users\Igor\Desktop\Green_wave_deviceA\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-12-02 23:14:15.560
+!MESSAGE Started RMI Server, listening on port 41337

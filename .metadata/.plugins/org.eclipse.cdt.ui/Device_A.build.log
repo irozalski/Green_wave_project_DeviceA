@@ -1,4 +1,4 @@
-15:45:16 **** Incremental Build of configuration Debug for project Device_A ****
+23:15:51 **** Incremental Build of configuration Debug for project Device_A ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/Igor/Desktop/STM32CubeExpansion_Crypto_V3.1.0/Fw_Crypto/STM32F4/Middlewares/ST/STM32_Cryptographic/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "Device_A.elf" @"objects.list"  -lSTM32CryptographicV3.0.0_CM4_GCC_ot -mcpu=cortex-m4 -T"C:\Users\Igor\Desktop\Green_wave_deviceA\Device_A\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Device_A.map" -Wl,--gc-sections -static -L"C:\Users\Igor\Desktop\STM32CubeExpansion_Crypto_V3.1.0\Fw_Crypto\STM32F4\Middlewares\ST\STM32_Cryptographic\Lib" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: Device_A.elf
 arm-none-eabi-size   Device_A.elf 
 arm-none-eabi-objdump -h -S  Device_A.elf  > "Device_A.list"
    text	   data	    bss	    dec	    hex	filename
-  34520	     60	   8364	  42944	   a7c0	Device_A.elf
+  35280	     60	   8372	  43712	   aac0	Device_A.elf
 Finished building: default.size.stdout
  
 Finished building: Device_A.list
  
 
-15:45:17 Build Finished. 0 errors, 0 warnings. (took 1s.21ms)
+23:15:52 Build Finished. 0 errors, 0 warnings. (took 1s.330ms)
 
